@@ -1,0 +1,51 @@
+// Program to create 1 D array and shift the array by k location right shift.
+#include <stdio.h>
+void rightShift
+(int arr[], int n, int k) 
+{
+   int temp[n];
+    k = k % n; 
+    for (int i = 0; i < n; i++) {
+        temp[(i + k) % n] = arr[i];
+    }
+    for (int i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }
+}
+int main() {
+    int n = 4, k = 1;
+    int arr[5] = {1, 2, 3, 4};
+    rightShift(arr, n, k);
+    printf("After right shift array will be:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+// Program to create 1 D array find the leader rule if the sum of all elements right to the particular element is less than the number.
+#include <stdio.h>
+int main() {
+    int n, i, j, sum;
+    printf("enter array size: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements:", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Leader elements:");
+    for (i = 0; i < n; i++) {
+        sum = 0;
+        for (j = i + 1; j < n; j++) {
+            sum += arr[j];
+        }
+        if (arr[i] > sum) {
+            printf("%d ", arr[i]);
+        }
+    }
+    return 0;
+}
+
+
+
